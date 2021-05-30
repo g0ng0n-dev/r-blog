@@ -1,3 +1,3 @@
-import PostPage from "./posts";
+import PostsPage from "./Posts/PostsPage";
 
-export { PostPage };
+export { PostsPage };

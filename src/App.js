@@ -5,7 +5,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import { ROUTES } from "./constants/routes";
 import Layout from "./components/Layout/Layout";
 import {
-  PostPage
+    PostsPage
 } from "./pages";
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
       <Layout>
         <Switch>
           <Route path="/" exact render={() => <Redirect to={ROUTES.main} />} />
-          <Route exact path={ROUTES.main} component={PostPage} />
+          <Route exact path={ROUTES.main} component={PostsPage} />
         </Switch>
       </Layout>
   );
