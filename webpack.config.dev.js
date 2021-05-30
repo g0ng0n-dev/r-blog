@@ -42,6 +42,18 @@ module.exports = {
         test: /(\.css)$/,
         use: ["style-loader", "css-loader"], // this will allow us to import css just like we do javascript and webpack will bundle all of our css into a single file
       },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "fonts/",
+            },
+          },
+        ],
+      },
     ],
   },
 };
