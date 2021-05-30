@@ -4,13 +4,36 @@ import Container from "@material-ui/core/Container";
 import { connect } from "react-redux";
 import { loadPosts } from "../../redux/actions/postsActions";
 import { loadUsers } from "../../redux/actions/usersActions";
+import { loadCommentsByPostId } from "../../redux/actions/commentsActions";
 import PropTypes from "prop-types";
-
-import { useStyles } from "./styles";
+import PostModal from "../../components/Posts/PostModal";
 import PostList from "../../components/Posts/PostList";
+import { useStyles } from "./styles";
 
-const PostsPage = ({ users, posts, loadPosts, loadUsers, ...props }) => {
+const PostsPage = ({
+  users,
+  posts,
+  loadCommentsByPostId,
+  loadPosts,
+  loadUsers,
+  ...props
+}) => {
   const classes = useStyles();
+
+  const [open, setOpen] = React.useState(false);
+  const [postToShow, setPostToShow] = React.useState({});
+
+  const handleClickOpen = (post) => {
+    setPostToShow(post);
+    console.log(JSON.stringify(postToShow));
+
+    loadCommentsByPostId(post.id);
+    setOpen(true);
+  };
+
+  const handleClose = (value) => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     if (posts.length === 0) {
@@ -32,11 +55,27 @@ const PostsPage = ({ users, posts, loadPosts, loadUsers, ...props }) => {
         <Typography variant="h4" className={classes.blogTitle}>
           Posts
         </Typography>
-        <PostList posts={posts} />
+        <PostList posts={posts} onClick={handleClickOpen} />
       </Container>
+
+      <PostModal
+        postToShow={postToShow}
+        commentsToShow={props.comments}
+        open={open}
+        onClose={handleClose}
+      />
     </div>
   );
 };
+
+PostsPage.propTypes = {
+  comments: PropTypes.array.isRequired,
+  users: PropTypes.array.isRequired,
+  posts: PropTypes.array.isRequired,
+  loadPosts: PropTypes.func.isRequired,
+  loadUsers: PropTypes.func.isRequired,
+};
+
 function mapStateToProps(state) {
   return {
     posts:
@@ -49,18 +88,14 @@ function mapStateToProps(state) {
             };
           }),
     users: state.users,
+    comments: !state.comments ? [] : state.comments,
   };
 }
-PostsPage.propTypes = {
-  users: PropTypes.array.isRequired,
-  posts: PropTypes.array.isRequired,
-  loadPosts: PropTypes.func.isRequired,
-  loadUsers: PropTypes.func.isRequired,
-};
 
 const mapDispatchToProps = {
   loadPosts,
   loadUsers,
+  loadCommentsByPostId,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsPage);

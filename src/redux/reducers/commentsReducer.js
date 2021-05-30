@@ -1,10 +1,10 @@
 import * as types from "../actions/actionTypes";
 import initialState from "./initialState";
 
-export default function postsReducer(state = initialState.posts, action) {
+export default function commentsReducer(state = initialState.comments, action) {
   switch (action.type) {
-    case types.LOAD_POSTS_SUCCESS:
-      return action.posts;
+    case types.LOAD_COMMENTS_SUCCESS:
+      return action.comments;
     default:
       return state;
   }
