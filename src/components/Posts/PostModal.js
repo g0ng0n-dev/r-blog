@@ -30,8 +30,13 @@ function PostModal(props) {
       onClose={handleClose}
       aria-labelledby="simple-dialog-title"
       open={open}
+      scroll={"body"}
     >
-      <DialogTitle id="simple-dialog-title">{title}</DialogTitle>
+      <DialogTitle id="simple-dialog-title">
+        <Typography gutterBottom variant="h4" component="h2">
+          {title}
+        </Typography>
+      </DialogTitle>
       <Card className={classes.card}>
         <CardActions className={classes.cardActions}>
           <CardContent>

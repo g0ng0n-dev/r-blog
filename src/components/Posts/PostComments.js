@@ -7,10 +7,10 @@ const imgLink =
 const PostComments = (props) => {
   return (
     <div style={{ padding: 14 }} className="App">
-      <h3>Comments</h3>
+      <h3>Comments: {props.comments ? props.comments.length : 0}</h3>
       {props.comments.map((comment) => {
         return (
-          <Paper key={comment.id} style={{ padding: "40px 20px" }}>
+          <Paper key={comment.id} style={{ padding: "10px 10px" }}>
             <Grid container wrap="nowrap" spacing={2}>
               <Grid item>
                 <Avatar alt="Remy Sharp" src={imgLink} />
