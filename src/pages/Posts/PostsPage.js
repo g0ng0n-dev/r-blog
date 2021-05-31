@@ -31,14 +31,24 @@ const PostsPage = (props) => {
   };
 
   useEffect(() => {
-    props.loadPosts().catch((error) => {
-      alert("Loading posts Failed" + error);
-    });
+    async function loadPosts() {
+      try {
+        props.loadPosts();
+      }catch(error) {
+        alert("Loading posts Failed" + error);
+      }
+    }
+    async function loadUsers() {
+      try {
+        props.loadUsers();
+      }catch(error) {
+        alert("Loading posts Failed" + error);
+      }
+    }
+    loadPosts();
+    loadUsers();
+  }, [])
 
-    props.loadUsers().catch((error) => {
-      alert("Loading users Failed" + error);
-    });
-  }, []);
 
   const handleChangeUsers = (id) => {
     if (id === 0) {
