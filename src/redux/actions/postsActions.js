@@ -2,8 +2,6 @@ import * as types from "./actionTypes";
 import * as postsApi from "../../api/postsApi";
 
 function loadPostsSuccess(posts) {
-  console.log("posts");
-  console.log(posts);
   return { type: types.LOAD_POSTS_SUCCESS, posts };
 }
 
