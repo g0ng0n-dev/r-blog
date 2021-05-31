@@ -7,7 +7,7 @@ function Footer() {
     const classes = useStyles();
     return (
         <div className={classes.footer}>
-            <Typography variant="h6">Footer</Typography>
+            <Typography variant="h6">Copyright © 2021 - R-Blog </Typography>
         </div>
     );
 }
