@@ -24,7 +24,7 @@ const Header = () => {
           {isOpened ? <ChevronLeftIcon /> : <MenuIcon />}
         </IconButton>
         <Typography variant="h3" className={classes.title}>
-          RavenPack Blog
+          R-Blog
         </Typography>
       </Toolbar>
     </AppBar>

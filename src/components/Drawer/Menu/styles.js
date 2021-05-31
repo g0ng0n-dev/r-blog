@@ -3,11 +3,11 @@ import {makeStyles} from "@material-ui/core/styles";
 export const useStyles =makeStyles((theme) => ({
         button: {
             "&:hover": {
-                backgroundColor: theme.palette.primary.light,
+                backgroundColor: '#796d43',
                 color: theme.palette.common.white,
             },
             "&$selected": {
-                backgroundColor: theme.palette.primary.dark,
+                backgroundColor: '#121212',
                 color: theme.palette.common.white,
             },
         },
@@ -17,7 +17,7 @@ export const useStyles =makeStyles((theme) => ({
             paddingRight: theme.spacing(2),
         },
         icon: {
-            color: theme.palette.secondary.main,
+            color: '#796d43',
         },
     })
 );

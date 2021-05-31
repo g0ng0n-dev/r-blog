@@ -12,6 +12,6 @@ export const useStyles = makeStyles(() => ({
         flex: 1,
     },
     main: {
-        flex: 1,
+        flex: 2,
     },
 }));

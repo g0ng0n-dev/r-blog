@@ -20,12 +20,7 @@ const DRAWER_LIST = [
         route: ROUTES.main,
         literal: 'Posts',
         Icon: DashboardIcon,
-    },
-    {
-        route: ROUTES.users,
-        literal: 'Users',
-        Icon: PersonIcon,
-    },
+    }
 ]
 
 function MenuItemsList() {

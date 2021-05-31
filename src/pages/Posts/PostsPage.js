@@ -61,7 +61,6 @@ const PostsPage = (props) => {
   };
 
   return (
-    <div>
       <Container maxWidth="lg" className={classes.blogsContainer}>
         <Grid direction="column" container spacing={2}>
           <Grid item xs={12}>
@@ -72,22 +71,20 @@ const PostsPage = (props) => {
 
           <PostFilter users={props.users} handleChange={handleChangeUsers} />
 
-          <Grid container item xs={12}>
+          <Grid item xs={12}>
             <PostList
               posts={filteredPosts.length === 0 ? props.posts : filteredPosts}
               onClick={handleClickOpen}
             />
           </Grid>
         </Grid>
+        <PostModal
+            postToShow={postToShow}
+            commentsToShow={props.comments}
+            open={open}
+            onClose={handleClose}
+        />
       </Container>
-
-      <PostModal
-        postToShow={postToShow}
-        commentsToShow={props.comments}
-        open={open}
-        onClose={handleClose}
-      />
-    </div>
   );
 };
 
