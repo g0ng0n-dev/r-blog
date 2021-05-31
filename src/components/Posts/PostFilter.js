@@ -25,14 +25,7 @@ const PostFilter = (props) => {
       <Paper className={classes.paper}>
         <FormControl className={classes.formControl}>
           <InputLabel htmlFor="users-native-helper">Users</InputLabel>
-          <NativeSelect
-            value={userId}
-            onChange={handleChangeUsers}
-            inputProps={{
-              name: "user",
-              id: "user-native-helper",
-            }}
-          >
+          <NativeSelect value={userId} onChange={handleChangeUsers}>
             <option aria-label="None" value={0}>
               All
             </option>

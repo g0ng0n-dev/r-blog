@@ -11,7 +11,6 @@ import { useStyles } from "./styles";
 
 const PostList = (props) => {
   const classes = useStyles();
-
   return (
     <Grid container spacing={3}>
       {props.posts.map((post) => {

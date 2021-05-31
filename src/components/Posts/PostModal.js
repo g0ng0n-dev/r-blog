@@ -19,41 +19,26 @@ function PostModal(props) {
     onClose(selectedValue);
   };
 
-  const handleListItemClick = (value) => {
-    onClose(value);
-  };
-
   const { title: title, body: body, userName: userName } = props.postToShow;
 
   return (
-    <Dialog
-      onClose={handleClose}
-      aria-labelledby="simple-dialog-title"
-      open={open}
-      scroll={"body"}
-    >
-      <DialogTitle id="simple-dialog-title">
-        <Typography gutterBottom variant="h4" component="h2">
+    <Dialog onClose={handleClose} open={open} scroll={"body"}>
+      <DialogTitle>
+        <Typography gutterBottom component="h4">
           {title}
         </Typography>
       </DialogTitle>
       <Card className={classes.card}>
         <CardActions className={classes.cardActions}>
           <CardContent>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography color="textSecondary" component="p">
               {body}
             </Typography>
             <Box className={classes.author}>
               <Avatar src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" />
               <Box ml={2}>
-                <Typography variant="subtitle2" component="p">
-                  Author: {userName}
-                </Typography>
-                <Typography
-                  variant="subtitle2"
-                  color="textSecondary"
-                  component="p"
-                >
+                <Typography component="p">Author: {userName}</Typography>
+                <Typography color="textSecondary" component="p">
                   May 14, 2020
                 </Typography>
               </Box>
@@ -70,6 +55,7 @@ function PostModal(props) {
 PostModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
+  commentsToShow: PropTypes.array.isRequired,
 };
 
 export default PostModal;
