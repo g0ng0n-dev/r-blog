@@ -36,17 +36,13 @@ const PostsPage = ({
   };
 
   useEffect(() => {
-    if (posts.length === 0) {
-      loadPosts().catch((error) => {
-        alert("Loading posts Failed" + error);
-      });
-    }
+    loadPosts().catch((error) => {
+      alert("Loading posts Failed" + error);
+    });
 
-    if (users.length === 0) {
-      loadUsers().catch((error) => {
-        alert("Loading users Failed" + error);
-      });
-    }
+    loadUsers().catch((error) => {
+      alert("Loading users Failed" + error);
+    });
   }, []);
 
   return (
@@ -77,6 +73,7 @@ PostsPage.propTypes = {
 };
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
     posts:
       state.users.length === 0

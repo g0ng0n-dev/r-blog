@@ -19,10 +19,21 @@ export const useStyles = makeStyles((theme) => ({
   },
   paginationContainer: {
     display: "flex",
-    justifyContent: "center",
   },
   avatar: {
     backgroundColor: blue[100],
     color: blue[600],
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
   },
 }));
